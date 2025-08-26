@@ -10,17 +10,17 @@ Instructions for Cloning the Project
 
 3. Also run these commands to prevent first run errors
 
-  python manage.py makemigrations
+     python manage.py makemigrations
 
-  python manage.py migrate
+     python manage.py migrate
 
 4. Create a superuser:
    
-  python manage.py createsuperuser
+     python manage.py createsuperuser
 
 5. Start the development server:
 
-  python manage.py runserver
+     python manage.py runserver
 
 6. Login using the superuser account you created
 
@@ -28,5 +28,6 @@ Instructions for Cloning the Project
 Now, go back to http://127.0.0.1:8000/ and post a tweet.
 
 After posting, you can check the admin page again to see the new Tweet and the corresponding History object that was created automatically by the signal.
+
 
 
