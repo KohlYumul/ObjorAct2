@@ -25,9 +25,6 @@ Instructions for Cloning the Project
 6. Login using the superuser account you created
 
 7. Post a tweet and click "Go to Admin Page to see Tweets and History" to view the history and tweet you created
-Now, go back to http://127.0.0.1:8000/ and post a tweet.
-
-After posting, you can check the admin page again to see the new Tweet and the corresponding History object that was created automatically by the signal.
 
 
 
