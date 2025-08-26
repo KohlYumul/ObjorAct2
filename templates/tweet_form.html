@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Tweet</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2em;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        input[type="text"], textarea {
+            width: 95%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 0.5em;
+        }
+        button {
+            padding: 0.7em 1em;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 0.5em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a Tweet</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post Tweet</button>
+    </form>
+    <br>
+    <p style="text-align: center;">
+        <a href="/admin">Go to Admin Page to see Tweets and History</a>
+    </p>
+    {% if not user.is_authenticated %}
+    <p style="text-align: center; font-style: italic;">
+        You'll need to log in to the admin page first to create a tweet and see the history objects.
+    </p>
+    {% endif %}
+</body>
+</html>
