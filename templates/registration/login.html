@@ -2,9 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+        form {
+            max-width: 400px;
+            padding: 2em;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1em;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 95%;
+            padding: 0.7em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 0.5em;
+        }
+        button {
+            width: 100%;
+            padding: 0.7em 1em;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 0.5em;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .errorlist {
+            list-style-type: none;
+            padding: 0;
+            color: red;
+            margin-bottom: 1em;
+        }
+    </style>
 </head>
 <body>
-
+    <form method="post">
+        <h1>Login</h1>
+        <!-- This will render a ul with class="errorlist" if there are non-field errors -->
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log In</button>
+    </form>
 </body>
 </html>

@@ -16,3 +16,5 @@ def create_history_on_tweet_save(sender, instance, created, **kwargs):
             date=instance.created_at,
             summary=summary_text
         )
+
+
